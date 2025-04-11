@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Music Player</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="music.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="logo.png" alt="Logo">
+            <h1>Color Personality Music</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="login.html" class="nav-link">Login</a></li>
+            <li><a href="test.html" class="nav-link">Take Test</a></li>
+            <li><a href="info.html" class="nav-link">Personalities</a></li>
+            <li><a href="badpersonalitymain.html" class="nav-link">negative Trait</a></li>
+            <li><a href="music.html" class="nav-link active">Music</a></li>
+            <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="music-container">
+        <!-- Hero Section -->
+        <div class="music-hero">
+            <h1>Discover Music Based on Your Color Personality</h1>
+            <p>Your color personality reveals your musical taste. Explore songs that match your true self and discover new favorites that resonate with who you are.</p>
+        </div>
+
+        <!-- Currently Playing Section -->
+        <div class="currently-playing">
+            <div class="now-playing-card">
+                <div class="now-playing-info">
+                    <h3>Now Playing</h3>
+                    <p id="current-song-title">Select a song to play</p>
+                    <p id="current-song-artist">-</p>
+                    <p>Color Personality: <span id="current-song-color">-</span></p>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn" id="previous-btn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn" id="play-pause-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="next-btn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up"></i>
+                        <input type="range" id="volume-slider" min="0" max="100" value="80">
+                    </div>
+                </div>
+            </div>
+            <div id="spotify-player-container">
+                <!-- Spotify iframe will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Personality Selector Section -->
+        <div class="section-selector">
+            <div class="color-tabs">
+                <button class="color-tab" data-color="Black">Black</button>
+                <button class="color-tab" data-color="White">White</button>
+                <button class="color-tab" data-color="Red">Red</button>
+                <button class="color-tab" data-color="Blue">Blue</button>
+                <button class="color-tab" data-color="Yellow">Yellow</button>
+                <button class="color-tab" data-color="Green">Green</button>
+                <button class="color-tab" data-color="Purple">Purple</button>
+                <button class="color-tab" data-color="Chocolate">Chocolate</button>
+                <button class="color-tab" data-color="Pink">Pink</button>
+                <button class="color-tab" data-color="Grey">Grey</button>
+            </div>
+        </div>
+
+        <!-- Personality Content -->
+        <div class="personality-content">
+            <!-- Black -->
+            <div class="personality-tab" id="Black-music">
+                <div class="personality-header">
+                    <h2>Black Personality Music</h2>
+                    <p>Independent, mysterious, and deep thinkers will resonate with these introspective tracks.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Bad Guy</h3>
+                            <p>Billie Eilish</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="2Fxmhks0bxGSBdJ92vM42m">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>When The Party's Over</h3>
+                            <p>Billie Eilish</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="43zdsphuZLzwA9k4DJhU0I">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Believer</h3>
+                            <p>Imagine Dragons</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="0pqnGHJpmpxLKifKRmU6WP">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- White -->
+            <div class="personality-tab" id="White-music">
+                <div class="personality-header">
+                    <h2>White Personality Music</h2>
+                    <p>Peaceful, pure, and harmonious souls will find comfort in these serene melodies.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Exile</h3>
+                            <p>Taylor Swift ft. Bon Iver</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="4pvb0WLRcMtbPGmtejJJ6y">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>     
+            </div>
+
+            <!-- Red -->
+            <div class="personality-tab" id="Red-music">
+                <div class="personality-header">
+                    <h2>Red Personality Music</h2>
+                    <p>Passionate, bold, and energetic spirits will be moved by these powerful anthems.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Blinding Lights</h3>
+                            <p>The Weeknd</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="0VjIjW4GlUZAMYd2vXMi3b">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Don't Stop Me Now</h3>
+                            <p>Queen</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="7hQJA50XrCWABAu5v6QZ4i">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Uptown Funk</h3>
+                            <p>Mark Ronson ft. Bruno Mars</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="32OlwWuMpZ6b0aN2RZOeMS">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blue -->
+            <div class="personality-tab" id="Blue-music">
+                <div class="personality-header">
+                    <h2>Blue Personality Music</h2>
+                    <p>Loyal, intelligent, and thoughtful minds will appreciate these complex compositions.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Bohemian Rhapsody</h3>
+                            <p>Queen</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="3z8h0TU7ReDPLIbEnYhWZb">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Clocks</h3>
+                            <p>Coldplay</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="0BCPKOYdS2jbQ8iyB56Zns">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yellow -->
+            <div class="personality-tab" id="Yellow-music">
+                <div class="personality-header">
+                    <h2>Yellow Personality Music</h2>
+                    <p>Optimistic, cheerful, and social butterflies will dance to these uplifting beats.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Happy</h3>
+                            <p>Pharrell Williams</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="60nZcImufyMA1MKQY3dcCH">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>I Gotta Feeling</h3>
+                            <p>Black Eyed Peas</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="1nInOsHbtotAmEOQhtvnzP">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Green -->
+            <div class="personality-tab" id="Green-music">
+                <div class="personality-header">
+                    <h2>Green Personality Music</h2>
+                    <p>Balanced, practical, and nature-loving individuals will find peace in these grounded melodies.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Here Comes the Sun</h3>
+                            <p>The Beatles</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="6dGnYIeXmHdcikdzNNDMm2">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Landslide</h3>
+                            <p>Fleetwood Mac</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="5ihS6UUlyQAfmp48eSkxuQ">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purple -->
+            <div class="personality-tab" id="Purple-music">
+                <div class="personality-header">
+                    <h2>Purple Personality Music</h2>
+                    <p>Creative, unique, and imaginative minds will be inspired by these artistic compositions.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Space Oddity</h3>
+                            <p>David Bowie</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="72Z17vmmeQKAg8bptWvpVG">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Knights of Cydonia</h3>
+                            <p>Muse</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="7ouMYWpwJ422jRcDASZB7P">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Runaway</h3>
+                            <p>Aurora</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="1v1oIWf2Xgh54kIWuKsDf6">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chocolate -->
+            <div class="personality-tab" id="Chocolate-music">
+                <div class="personality-header">
+                    <h2>Chocolate Personality Music</h2>
+                    <p>Grounded, reliable, and traditional hearts will cherish these timeless classics.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Stand By Me</h3>
+                            <p>Ben E. King</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="3SdTKo2uVsxFblQjpScoHy">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pink -->
+            <div class="personality-tab" id="Pink-music">
+                <div class="personality-header">
+                    <h2>Pink Personality Music</h2>
+                    <p>Kind, loving, and nurturing souls will connect with these tender and romantic tracks.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>All of Me</h3>
+                            <p>John Legend</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="3U4isOIWM3VvDubwSI3y7a">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grey -->
+            <div class="personality-tab" id="Grey-music">
+                <div class="personality-header">
+                    <h2>Grey Personality Music</h2>
+                    <p>Calm, logical, and balanced individuals will appreciate these composed and neutral melodies.</p>
+                </div>
+                <div class="song-list">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>Fix You</h3>
+                            <p>Coldplay</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="7LVHVU3tWfcxj5aiPFEW4Q">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-info">
+                            <h3>The Sound of Silence</h3>
+                            <p>Simon & Garfunkel</p>
+                        </div>
+                        <button class="play-btn" data-spotify-id="3YRCqOhFifThpSRFJ1VWFM">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Replace your current Music Info Section with this updated version -->
+<div class="music-info-section">
+    <h2>How Music Reflects Your Personality</h2>
+    <p>Your color personality greatly influences your musical preferences. Discover how your dominant personality color shapes your connection to different musical styles, rhythms, and lyrical themes.</p>
+    
+    <div class="personality-cards">
+        <div class="personality-card" data-color="Black">
+            <h3>Black Personality</h3>
+            <div class="personality-card-content">
+                <h4>Independent & Mysterious</h4>
+                <p>Black personalities are drawn to music that provides depth and intellectual stimulation. They appreciate complex compositions with layers of meaning that reward repeated listening.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Gravitates toward alternative, indie, and experimental genres</li>
+                        <li>Appreciates lyrics with philosophical or existential themes</li>
+                        <li>Enjoys instrumental complexity and unconventional song structures</li>
+                        <li>Often connects with artists who maintain an air of mystery</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Radiohead, Billie Eilish, Nick Cave, Nine Inch Nails</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="White">
+            <h3>White Personality</h3>
+            <div class="personality-card-content">
+                <h4>Peaceful & Pure</h4>
+                <p>White personalities seek harmony and balance in their music choices. They are drawn to pure, serene sounds that promote inner peace and spiritual connection.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Enjoys ambient, acoustic, and meditation music</li>
+                        <li>Prefers songs with uplifting, positive messages</li>
+                        <li>Drawn to harmonious vocal arrangements and gentle instrumentation</li>
+                        <li>Appreciates nature sounds and minimalist compositions</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Enya, Bon Iver, Sigur Rós, Taylor Swift (softer compositions)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Red">
+            <h3>Red Personality</h3>
+            <div class="personality-card-content">
+                <h4>Passionate & Bold</h4>
+                <p>Red personalities are energized by dynamic, powerful music that matches their ambitious, competitive nature. They seek music that inspires action and confidence.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Gravitates toward energetic rock, high-energy pop, and intense electronic music</li>
+                        <li>Loves powerful vocals and driving beats</li>
+                        <li>Enjoys music with themes of triumph, strength, and overcoming challenges</li>
+                        <li>Often listens to music during workouts or when preparing for challenges</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Queen, The Weeknd, Lady Gaga, AC/DC</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Blue">
+            <h3>Blue Personality</h3>
+            <div class="personality-card-content">
+                <h4>Loyal & Intelligent</h4>
+                <p>Blue personalities appreciate music with logical structure and intellectual depth. They enjoy analyzing compositions and often recognize the technical brilliance in music.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Drawn to classical music, progressive rock, and jazz</li>
+                        <li>Appreciates complex harmonies and technical virtuosity</li>
+                        <li>Enjoys well-crafted lyrics with clever wordplay and meaningful messages</li>
+                        <li>Values musical consistency and artists with proven track records</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Pink Floyd, Coldplay, Queen, Bach</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Yellow">
+            <h3>Yellow Personality</h3>
+            <div class="personality-card-content">
+                <h4>Optimistic & Cheerful</h4>
+                <p>Yellow personalities gravitate toward upbeat, joyful music that matches their sunny outlook. They use music to enhance their already positive mood and share happiness with others.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Loves energetic pop, dance music, and upbeat songs</li>
+                        <li>Enjoys catchy, singable choruses and danceable rhythms</li>
+                        <li>Prefers music with themes of celebration, fun, and social connection</li>
+                        <li>Drawn to music that creates a party atmosphere</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Pharrell Williams, Black Eyed Peas, Lizzo, Katy Perry</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Green">
+            <h3>Green Personality</h3>
+            <div class="personality-card-content">
+                <h4>Balanced & Practical</h4>
+                <p>Green personalities enjoy music that provides stability and reflects their connection to nature and traditional values. They appreciate authentic, unpretentious musical expressions.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Gravitates toward folk, acoustic, and country music</li>
+                        <li>Enjoys songs with practical wisdom and relatable life observations</li>
+                        <li>Appreciates organic instrumentation and natural sounds</li>
+                        <li>Values consistency and reliability in musical styles</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: The Beatles, Fleetwood Mac, Tracy Chapman, John Denver</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Purple">
+            <h3>Purple Personality</h3>
+            <div class="personality-card-content">
+                <h4>Creative & Unique</h4>
+                <p>Purple personalities are drawn to innovative, boundary-pushing music that reflects their creative spirit. They value artistic expression that defies conventional categories.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Enjoys experimental, avant-garde, and genre-blending music</li>
+                        <li>Appreciates unique vocal styles and unconventional instruments</li>
+                        <li>Drawn to artists who constantly reinvent themselves</li>
+                        <li>Values emotional depth and artistic integrity in music</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: David Bowie, Björk, Muse, Kate Bush</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Chocolate">
+            <h3>Chocolate Personality</h3>
+            <div class="personality-card-content">
+                <h4>Grounded & Traditional</h4>
+                <p>Chocolate personalities find comfort in familiar, timeless music that reflects their traditional values. They appreciate songs that celebrate family, community, and enduring values.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Drawn to classic hits, oldies, and traditional folk music</li>
+                        <li>Enjoys songs with themes of home, family, and lasting relationships</li>
+                        <li>Appreciates warm, familiar melodies and straightforward structures</li>
+                        <li>Often has nostalgic connections to music from their formative years</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Frank Sinatra, Johnny Cash, Carole King, Louis Armstrong</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Pink">
+            <h3>Pink Personality</h3>
+            <div class="personality-card-content">
+                <h4>Kind & Loving</h4>
+                <p>Pink personalities connect deeply with emotional, romantic music that celebrates love and connection. They are drawn to songs that express tenderness and nurturing feelings.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Loves romantic ballads and heartfelt love songs</li>
+                        <li>Appreciates gentle, soothing vocals and emotional sincerity</li>
+                        <li>Drawn to songs about caring for others and emotional support</li>
+                        <li>Enjoys music that creates a warm, intimate atmosphere</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: John Legend, Adele, Ed Sheeran, Celine Dion</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="personality-card" data-color="Grey">
+            <h3>Grey Personality</h3>
+            <div class="personality-card-content">
+                <h4>Calm & Logical</h4>
+                <p>Grey personalities appreciate measured, composed music with clean structures. They enjoy music that allows for detached observation rather than overwhelming emotional displays.</p>
+                <div class="music-preferences">
+                    <h5>Musical Preferences:</h5>
+                    <ul>
+                        <li>Drawn to instrumental music, ambient sounds, and minimalist compositions</li>
+                        <li>Appreciates precise, technically accomplished performances</li>
+                        <li>Enjoys music with subtle, nuanced emotional expression</li>
+                        <li>Values clarity, balance, and restraint in musical arrangements</li>
+                    </ul>
+                </div>
+                <div class="example-artists">
+                    <p>Example artists: Coldplay, Simon & Garfunkel, Philip Glass, Keane</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Mini Player (for other pages) -->
+    <div class="mini-player">
+        <div class="mini-player-info">
+            <p class="mini-title">Select a song to play</p>
+            <p class="mini-artist">-</p>
+        </div>
+        <div class="mini-controls">
+            <button id="mini-play-pause">
+                <i class="fas fa-play"></i>
+            </button>
+            <a href="music.html" class="music-link">
+                <i class="fas fa-music"></i>
+            </a>
+        </div>
+        <div id="mini-player-container">
+            <!-- Spotify mini iframe will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Loading your musical experience...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>

@@ -1,0 +1,654 @@
+/* Music Page Styles */
+:root {
+    --black-color: #212121;
+    --white-color: #FFFFFF;
+    --red-color: #FF5252;
+    --blue-color: #1E88E5;
+    --yellow-color: #FFC107;
+    --green-color: #4CAF50;
+    --purple-color: #9C27B0;
+    --chocolate-color: #795548;
+    --pink-color: #EC407A;
+    --grey-color: #9E9E9E;
+    --primary-color: var(--green-color);
+    --primary-light: #81C784;
+    --primary-dark: #388E3C;
+}
+
+.music-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Hero Section */
+.music-hero {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.music-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.music-hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Currently Playing Card */
+.currently-playing {
+    margin-bottom: 2rem;
+}
+
+.now-playing-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.now-playing-info {
+    flex: 1;
+}
+
+.now-playing-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.now-playing-info p {
+    margin: 0.25rem 0;
+}
+
+#current-song-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.control-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#volume-slider {
+    width: 120px;
+}
+
+/* Spotify Player Container */
+#spotify-player-container {
+    width: 100%;
+    margin-top: 1rem
+}
+
+#spotify-player-container iframe {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    border-radius: 8px;
+    height: 80px;
+}
+
+/* Personality Tabs */
+.section-selector {
+    margin-bottom: 2rem;
+}
+
+.color-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.color-tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.color-tab[data-color="Black"] {
+    background-color: var(--black-color);
+    color: white;
+}
+
+.color-tab[data-color="White"] {
+    background-color: var(--white-color);
+    color: black;
+    border: 1px solid #eee;
+}
+
+.color-tab[data-color="Red"] {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.color-tab[data-color="Blue"] {
+    background-color: var(--blue-color);
+    color: white;
+}
+
+.color-tab[data-color="Yellow"] {
+    background-color: var(--yellow-color);
+    color: black;
+}
+
+.color-tab[data-color="Green"] {
+    background-color: var(--green-color);
+    color: white;
+}
+
+.color-tab[data-color="Purple"] {
+    background-color: var(--purple-color);
+    color: white;
+}
+
+.color-tab[data-color="Chocolate"] {
+    background-color: var(--chocolate-color);
+    color: white;
+}
+
+.color-tab[data-color="Pink"] {
+    background-color: var(--pink-color);
+    color: white;
+}
+
+.color-tab[data-color="Grey"] {
+    background-color: var(--grey-color);
+    color: white;
+}
+
+.color-tab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.color-tab.active {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Personality Content */
+.personality-tab {
+    display: none;
+}
+
+.personality-tab.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.personality-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.personality-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Song List */
+.song-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.song-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.song-info {
+    flex: 1;
+}
+
+.song-info h3 {
+    margin-bottom: 0.25rem;
+    color: var(--primary-dark);
+}
+
+.song-info p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.play-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.play-btn.playing {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Music Info Section */
+.music-info-section {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.music-info-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.music-info-section > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Personality Cards Section */
+.personality-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.personality-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.personality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.personality-card h3 {
+    margin: 0;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.personality-card[data-color="Black"] h3 {
+    background-color: var(--black-color);
+}
+
+.personality-card[data-color="White"] h3 {
+    background-color: var(--black-color);
+    /* Using black background for white personality to ensure readability */
+}
+
+.personality-card[data-color="Red"] h3 {
+    background-color: var(--red-color);
+}
+
+.personality-card[data-color="Blue"] h3 {
+    background-color: var(--blue-color);
+}
+
+.personality-card[data-color="Yellow"] h3 {
+    background-color: var(--yellow-color);
+    color: black; /* Better contrast for yellow */
+}
+
+.personality-card[data-color="Green"] h3 {
+    background-color: var(--green-color);
+}
+
+.personality-card[data-color="Purple"] h3 {
+    background-color: var(--purple-color);
+}
+
+.personality-card[data-color="Chocolate"] h3 {
+    background-color: var(--chocolate-color);
+}
+
+.personality-card[data-color="Pink"] h3 {
+    background-color: var(--pink-color);
+}
+
+.personality-card[data-color="Grey"] h3 {
+    background-color: var(--grey-color);
+}
+
+.personality-card-content {
+    padding: 1.5rem;
+}
+
+.personality-card-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.traits-list {
+    margin-top: 1rem;
+}
+
+.traits-list p {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.traits-list i {
+    font-size: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.personality-card[data-color="Black"] .traits-list i {
+    color: var(--black-color);
+}
+
+.personality-card[data-color="White"] .traits-list i {
+    color: var(--black-color);
+}
+
+.personality-card[data-color="Red"] .traits-list i {
+    color: var(--red-color);
+}
+
+.personality-card[data-color="Blue"] .traits-list i {
+    color: var(--blue-color);
+}
+
+.personality-card[data-color="Yellow"] .traits-list i {
+    color: var(--yellow-color);
+}
+
+.personality-card[data-color="Green"] .traits-list i {
+    color: var(--green-color);
+}
+
+.personality-card[data-color="Purple"] .traits-list i {
+    color: var(--purple-color);
+}
+
+.personality-card[data-color="Chocolate"] .traits-list i {
+    color: var(--chocolate-color);
+}
+
+.personality-card[data-color="Pink"] .traits-list i {
+    color: var(--pink-color);
+}
+
+.personality-card[data-color="Grey"] .traits-list i {
+    color: var(--grey-color);
+}
+
+/* Call to Action Section */
+.music-cta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.music-cta h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.music-cta .button {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Loading Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: white;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mini Player (for other pages) */
+.mini-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-width: 350px;
+    width: 350px;
+    transition: all 0.3s ease;
+}
+
+.mini-player.hidden {
+    transform: translateY(120%);
+}
+
+.mini-player-info {
+    margin-bottom: 10px;
+}
+
+.mini-player-info p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mini-title {
+    font-weight: bold;
+}
+
+.mini-artist {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.mini-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#mini-play-pause, .music-link {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#mini-player-container {
+    width: 100%;
+}
+
+#mini-player-container iframe {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    height: 80px;
+}
+
+/* Active Color Tab Specific Styles */
+.color-tab[data-color="Black"].active ~ .personality-content #Black-music .personality-header h2 {
+    color: var(--black-color);
+}
+
+.color-tab[data-color="White"].active ~ .personality-content #White-music .personality-header h2 {
+    color: var(--black-color);
+}
+
+.color-tab[data-color="Red"].active ~ .personality-content #Red-music .personality-header h2 {
+    color: var(--red-color);
+}
+
+.color-tab[data-color="Blue"].active ~ .personality-content #Blue-music .personality-header h2 {
+    color: var(--blue-color);
+}
+
+.color-tab[data-color="Yellow"].active ~ .personality-content #Yellow-music .personality-header h2 {
+    color: var(--yellow-color);
+}
+
+.color-tab[data-color="Green"].active ~ .personality-content #Green-music .personality-header h2 {
+    color: var(--green-color);
+}
+
+.color-tab[data-color="Purple"].active ~ .personality-content #Purple-music .personality-header h2 {
+    color: var(--purple-color);
+}
+
+.color-tab[data-color="Chocolate"].active ~ .personality-content #Chocolate-music .personality-header h2 {
+    color: var(--chocolate-color);
+}
+
+.color-tab[data-color="Pink"].active ~ .personality-content #Pink-music .personality-header h2 {
+    color: var(--pink-color);
+}
+
+.color-tab[data-color="Grey"].active ~ .personality-content #Grey-music .personality-header h2 {
+    color: var(--grey-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .now-playing-card {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .player-controls {
+        flex-direction: column;
+    }
+    
+    .music-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .music-hero p {
+        font-size: 1rem;
+    }
+    
+    .mini-player {
+        width: 90%;
+        max-width: 90%;
+        right: 5%;
+        left: 5%;
+    }
+    
+    .personality-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .music-cta {
+        padding: 1.5rem;
+    }
+}
